@@ -35,3 +35,25 @@ $(document).scroll(function () {
     $(".scroll-to-top").fadeOut();
   }
 });
+
+$("#poli").change(function (e) {
+  e.preventDefault();
+  if ($(this).val() != "") {
+    $("#dokter").removeAttr("disabled");
+  } else {
+    $("#dokter").attr("disabled", true);
+  }
+});
+
+$("#dokter").click(function (e) {
+  e.preventDefault();
+  if ($("#poli option:selected").attr("value") == "gigi") {
+    $("#dokter option[value='dr.']").html("drg. Simon Sin, Sp. Ort");
+  } else if ($("#poli option:selected").attr("value") == "umum") {
+    $("#dokter option[value='dr.']").html("dr. Reynard Xavi, M. Kes");
+  } else if ($("#poli option:selected").attr("value") == "bidan") {
+    $("#dokter option[value='dr.']").html("dr. Darmayu Sari");
+  } else if ($("#poli option:selected").attr("value") == "fisioterapis") {
+    $("#dokter option[value='dr.']").html("dr. Jhonny Dexter, Sp. KFR");
+  }
+});
